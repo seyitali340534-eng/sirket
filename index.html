@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Nakliye Talep Formu</title>
+  <link rel="stylesheet" href="./assets/styles.css"/>
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="topbar">
+      <div class="logo"><span class="dot"></span> <span>Timeon Logistics</span></div>
+      <div><a class="link" href="./admin.html">Yönetici Girişi</a></div>
+    </div>
+    <div class="card">
+      <div class="kicker">Müşteri</div>
+      <h1>Nakliye Talep Formu</h1>
+      <p><small>Formu doldurun, ekibimiz en uygun aracı atayıp sizinle iletişime geçsin.</small></p>
+      <div id="errorBox" style="color:#ef4444;font-weight:700;margin-bottom:8px;"></div>
+      <div id="successBox" style="color:#22c55e;font-weight:700;margin-bottom:8px;"></div>
+      <form id="requestForm">
+        <div class="row">
+          <div>
+            <label>İsim Soyisim</label>
+            <input name="fullName" placeholder="Adınız Soyadınız" required/>
+          </div>
+          <div>
+            <label>Telefon</label>
+            <input name="phone" placeholder="05XXXXXXXXX" required/>
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label>E-posta <small>(opsiyonel)</small></label>
+            <input name="email" type="email" placeholder="mail@ornek.com"/>
+          </div>
+          <div>
+            <label>Malzeme Türü</label>
+            <input name="itemType" placeholder="Ör: Mobilya, Beyaz Eşya, Paletli Yük" required/>
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label>Malzeme Açıklaması</label>
+            <input name="itemDesc" placeholder="Adet, boyut, özel istekler vb."/>
+          </div>
+          <div class="row">
+            <div>
+              <label>Toplam Ağırlık (kg)</label>
+              <input name="weightKg" type="number" min="0" step="1" placeholder="Ör: 1200"/>
+            </div>
+            <div>
+              <label>Hacim (m³)</label>
+              <input name="volumeM3" type="number" min="0" step="0.1" placeholder="Ör: 12"/>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label>Çıkış Adresi</label>
+            <textarea name="fromAddress" rows="3" placeholder="İl, ilçe, mahalle, açık adres" required></textarea>
+          </div>
+          <div>
+            <label>Varış Adresi</label>
+            <textarea name="toAddress" rows="3" placeholder="İl, ilçe, mahalle, açık adres" required></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label>Tarih</label>
+            <input name="date" type="date" required/>
+          </div>
+          <div>
+            <label>Saat</label>
+            <input name="time" type="time" required/>
+          </div>
+        </div>
+        <label>Ek Notlar (opsiyonel)</label>
+        <textarea name="notes" rows="3" placeholder="Asansör var mı? Paketleme ister misiniz?"></textarea>
+        <div class="actions">
+          <button class="btn btn-primary" type="submit">Talebi Gönder</button>
+          <button class="btn btn-ghost" type="reset">Temizle</button>
+        </div>
+      </form>
+    </div>
+    <footer>© <span id="year"></span> Timeon Logistics • Tüm hakları saklıdır.</footer>
+  </div>
+  <script src="./assets/app.js"></script>
+  <script src="./assets/customer.js"></script>
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Yönetici Paneli • Nakliye</title>
+  <link rel="stylesheet" href="./assets/styles.css"/>
+  <!-- Firebase (v8 for simplicity) -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="topbar">
+      <div class="logo"><span class="dot"></span> <span>Timeon Logistics • Admin</span></div>
+      <div><a class="link" href="./index.html">Müşteri Formu</a></div>
+    </div>
+
+    <div id="loginCard" class="card" style="display:none;">
+      <div class="kicker">Giriş</div>
+      <h1>Yönetici Girişi</h1>
+      <form id="loginForm">
+        <label>E-posta</label>
+        <input type="email" name="email" placeholder="admin@ornek.com" required/>
+        <label>Şifre</label>
+        <input type="password" name="password" placeholder="••••••••" required/>
+        <div class="actions">
+          <button class="btn btn-primary" type="submit">Giriş Yap / İlk Kullanımda Kaydol</button>
+        </div>
+        <small>Not: İlk kez giriş yapıyorsanız bu e-posta ile admin hesabı otomatik oluşturulur.</small>
+      </form>
+    </div>
+
+    <div id="panelCard" class="card" style="display:none;">
+      <div class="kicker">Panel</div>
+      <h1>Gelen Talepler</h1>
+      <div class="actions">
+        <button class="btn btn-secondary" id="refreshBtn">Yenile</button>
+        <button class="btn btn-danger" id="logoutBtn">Çıkış</button>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Müşteri</th>
+            <th>Yük</th>
+            <th>Adres</th>
+            <th>Plan</th>
+            <th>Durum</th>
+            <th>İşlem</th>
+          </tr>
+        </thead>
+        <tbody id="requestsBody"></tbody>
+      </table>
+
+      <hr>
+      <h2>Seçili Talep</h2>
+      <p><small>ID:</small> <code id="selectedId">—</code></p>
+      <div class="row">
+        <div>
+          <label>Atanacak Araç</label>
+          <select id="fleetSelect">
+            <option value="">— Seç —</option>
+          </select>
+          <div class="actions">
+            <button class="btn btn-secondary" id="suggestBtn" type="button">Oto Öner</button>
+            <button class="btn btn-primary" id="approveBtn" type="button">Onayla</button>
+            <button class="btn btn-ghost" id="markDoneBtn" type="button">Tamamlandı</button>
+          </div>
+        </div>
+        <div>
+          <label>Mesaj Önizleme (WhatsApp / E-posta)</label>
+          <textarea id="waPreview" rows="6" readonly></textarea>
+          <div class="actions">
+            <button class="btn btn-secondary" id="waOpenBtn" type="button">WhatsApp'ta Aç</button>
+            <a class="btn btn-primary" id="mailLink" href="#" target="_blank">E-posta Gönder</a>
+          </div>
+          <small>WhatsApp tamamen ücretsizdir; bu buton sadece sohbeti hazır metinle açar.</small>
+        </div>
+      </div>
+    </div>
+
+    <footer>© <span id="year"></span> Timeon Logistics • Admin</footer>
+  </div>
+  <script src="./assets/app.js"></script>
+  <script src="./assets/admin.js"></script>
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+</body>
+</html>

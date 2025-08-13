@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Kurulum • Firebase Ayarı</title>
+  <link rel="stylesheet" href="./assets/styles.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="kicker">Kurulum</div>
+      <h1>Firebase Ayarı</h1>
+      <p><small>Firebase projenizdeki <strong>Web App Config</strong> objesini aşağıya yapıştırın ve kaydedin. Bu ayar tarayıcınızda güvenle <em>localStorage</em>'da saklanır.</small></p>
+      <label>Config JSON</label>
+      <textarea id="cfg" rows="12" placeholder='{"apiKey":"...","authDomain":"...","projectId":"...","storageBucket":"...","messagingSenderId":"...","appId":"..."}'></textarea>
+      <div class="actions">
+        <button class="btn btn-primary" id="saveBtn">Kaydet</button>
+        <button class="btn btn-ghost" id="clearBtn">Sıfırla</button>
+        <a class="btn btn-secondary" href="./admin.html">Admin Paneline Dön</a>
+      </div>
+      <div id="msg" style="margin-top:10px;"></div>
+    </div>
+  </div>
+  <script>
+    const area = document.getElementById('cfg');
+    const msg = document.getElementById('msg');
+    const saved = localStorage.getItem('nakliye_firebase_config');
+    if(saved){ area.value = saved; }
+    document.getElementById('saveBtn').onclick = () => {
+      try{
+        const obj = JSON.parse(area.value);
+        if(!obj.apiKey || !obj.projectId){ throw new Error('Eksik alanlar'); }
+        localStorage.setItem('nakliye_firebase_config', JSON.stringify(obj));
+        msg.textContent = 'Kaydedildi ✔';
+      }catch(e){
+        msg.textContent = 'Hatalı JSON ya da eksik alan';
+      }
+    };
+    document.getElementById('clearBtn').onclick = () => {
+      localStorage.removeItem('nakliye_firebase_config');
+      area.value = '';
+      msg.textContent = 'Sıfırlandı';
+    };
+  </script>
+</body>
+</html>

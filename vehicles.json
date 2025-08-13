@@ -1,0 +1,107 @@
+[
+  {
+    "id": "TR-01",
+    "name": "Ford Transit L1H1",
+    "type": "van",
+    "payload_kg": 1000,
+    "volume_m3": 6.0
+  },
+  {
+    "id": "TR-02",
+    "name": "Ford Transit L2H2",
+    "type": "van",
+    "payload_kg": 1200,
+    "volume_m3": 9.5
+  },
+  {
+    "id": "TR-03",
+    "name": "Mercedes Sprinter 3.5T",
+    "type": "van",
+    "payload_kg": 1400,
+    "volume_m3": 12.0
+  },
+  {
+    "id": "TR-04",
+    "name": "Renault Master Box",
+    "type": "box",
+    "payload_kg": 1500,
+    "volume_m3": 18.0
+  },
+  {
+    "id": "TR-05",
+    "name": "Iveco Daily Box",
+    "type": "box",
+    "payload_kg": 1800,
+    "volume_m3": 20.0
+  },
+  {
+    "id": "TR-06",
+    "name": "Isuzu NQR 6.5T",
+    "type": "truck",
+    "payload_kg": 3500,
+    "volume_m3": 28.0
+  },
+  {
+    "id": "TR-07",
+    "name": "Mitsubishi Canter 7.5T",
+    "type": "truck",
+    "payload_kg": 4500,
+    "volume_m3": 32.0
+  },
+  {
+    "id": "TR-08",
+    "name": "Man TGL 10T",
+    "type": "truck",
+    "payload_kg": 6500,
+    "volume_m3": 40.0
+  },
+  {
+    "id": "TR-09",
+    "name": "Mercedes Atego 12T",
+    "type": "truck",
+    "payload_kg": 8000,
+    "volume_m3": 48.0
+  },
+  {
+    "id": "TR-10",
+    "name": "Tenteli Kamyon 16T",
+    "type": "truck",
+    "payload_kg": 10000,
+    "volume_m3": 60.0
+  },
+  {
+    "id": "TR-11",
+    "name": "Kırkayak 26T",
+    "type": "truck",
+    "payload_kg": 16000,
+    "volume_m3": 70.0
+  },
+  {
+    "id": "TR-12",
+    "name": "Tır Dorseli 30T",
+    "type": "semi",
+    "payload_kg": 24000,
+    "volume_m3": 85.0
+  },
+  {
+    "id": "TR-13",
+    "name": "Reefer Soğutuculu",
+    "type": "reefer",
+    "payload_kg": 22000,
+    "volume_m3": 75.0
+  },
+  {
+    "id": "TR-14",
+    "name": "Lowbed Ağır Yük",
+    "type": "special",
+    "payload_kg": 30000,
+    "volume_m3": 50.0
+  },
+  {
+    "id": "TR-15",
+    "name": "Pickup Küçük",
+    "type": "pickup",
+    "payload_kg": 500,
+    "volume_m3": 3.0
+  }
+]
